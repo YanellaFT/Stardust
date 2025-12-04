@@ -1,1 +1,30 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: black;
+  color: white; /*text will be white*/
+  font-family: Arial, Helvetica, sans-serif; /*change font later*/
+  cursor: none; /*hides cursor*/
+  display: flex; /*creates flex container*/
+  justify-content: center; /*aligns flex container in center*/
+  align-items: center; /*aligns flex container vertically*/
+  text-align: center; /*aligns text in center*/
+}
 
+.content {
+  z-index: 100; /*makes sure this is above everything else*/
+  pointer-events: none; /*pointer is not allowed to interact with this*/
+}
+
+h1 {
+  font-size: 4rem; /*makes this 4x bigger than normal h1*/
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg,red, blue, green); /*sets gradient color   CHANGE THEM!!!*/
+  -webkit-background-clip: text;
+  background-clip: text; 
+  color: transparent; /*makes text transparent so gradient shows through*/
+  background-size: 400% 400%; /*zoom in background 400x width and height*/
+  animation: gradient 8s ease infinite; /*repeats animation infinitly, each cycle is 8sec, slowly then fast then slow*/
+}
