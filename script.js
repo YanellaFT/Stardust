@@ -1,11 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
     //color pallete
-    const colors = [ //GIVES ERROR MESSAGE
-        rgb(255,102,51),
-        rgb(255,0,51),
-        rgb(47,59,255),
-        rgb(107,223,18),
-        rgb(101,23,156),
+    const colors = [ //no rgb allowed
+        '#ff0000ff',
+        '#ff9100ff',
+        '#e5ff00ff',
+        '#33ff00ff',
+        '#0051ffff',
+        '#7F3C8D',
+
     ];
 
     //Define an SVG template for a star shape
@@ -43,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         //CREATE SPARKLESSS 
         const speed = Math.sqrt((e.movementX)**2 + (e.movementY)**2);
+        const sparkleCount = Math.min(8, Math.floor(speed/5));
 
         if (now - lastEmitTime > 10) {
             for ( let i = 0; i < sparkleCount; i++) {
@@ -104,6 +107,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 requestAnimationFrame(animate);
             }
         };
+
+        
     }
+
 });
 
