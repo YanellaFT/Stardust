@@ -108,7 +108,13 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         };
 
-        
+        document.body.appendChild(sparkle); //adds another sparkle to make visible on page
+        requestAnimationFrame(animate);
+
+        //remove after animation
+        setTimeout(() => {
+            sparkle.remove();
+        }, duration + delay);
     }
 
 });
