@@ -1,8 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     //color pallete
     const colors = [
-
-    ]
+        rgb(255,102,51),
+        rgb(255,0,51),
+        rgb(47,59,255),
+        rgb(107,223,18),
+        rgb(101,23,156),
+    ];
 
     //Define an SVG template for a star shape
     //path uses coordinates to draw a 5-pointed star
@@ -39,5 +43,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
         //CREATE SPARKLESSS 
         const speed = Math.sqrt((e.movementX)^2 + (e.movementY)^2);
-    })
+
+        if (now - lastEmitTime > 10) {
+            for ( let i = 0; i < sparkleCount; i++) {
+                createSparkle(
+                    e.clientX + (Math.random()-0.5)*20,
+                    e.clientY + (Math.random()-0.5)*20,
+                    e.movementX * 0.2,
+                    e.movementY * 0.2
+                );
+            }
+            lastEmitTime = now;
+        }
+    });
+
+    function createSparkle(x, y, vx = 0, vy = 0) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+
+        //l
+        const size = 8 + Math.random() * 12;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const duration = 500 + Math.random() * 500;
+        const rotation = Math.random() * 360;
+        const delay = Math.random() * 100;
+
+
+    }
 })
