@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
     //color pallete
-    const colors = [
+    const colors = [ //GIVES ERROR MESSAGE
         rgb(255,102,51),
         rgb(255,0,51),
         rgb(47,59,255),
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //fill="currentColor" makes it use the current text color
     const starSVG = ` <svg viewBox="0 0 24 24">
                     <path d="M12 1L14.8 8.2L22.5 9.2L16.7 14.5L18.4 22L12 18.2L5.6 22L7.3 14.5L1.5 
-9.2L9.2 8.2L12 1Z" 
+    9.2L9.2 8.2L12 1Z" 
                     fill="currentColor"/>
                 </svg>`;
 
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const now = Date.now();
 
         //Add the current cursor data to the history array: stores x/y position, timestamp, and velocity
-        cursorHistory.push ({ //e. is event
+        cursorHistory.push({ // e. is event
             x: e.clientX, //cursor x position
             y: e.clientY, //cursor y position
             time: now, //current timestamp
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         //CREATE SPARKLESSS 
-        const speed = Math.sqrt((e.movementX)^2 + (e.movementY)^2);
+        const speed = Math.sqrt((e.movementX)**2 + (e.movementY)**2);
 
         if (now - lastEmitTime > 10) {
             for ( let i = 0; i < sparkleCount; i++) {
@@ -61,13 +61,49 @@ document.addEventListener('DOMContentLoaded', () => {
         const sparkle = document.createElement('div');
         sparkle.className = 'sparkle';
 
-        //l
+        //properties
         const size = 8 + Math.random() * 12;
         const color = colors[Math.floor(Math.random() * colors.length)];
         const duration = 500 + Math.random() * 500;
         const rotation = Math.random() * 360;
         const delay = Math.random() * 100;
 
+        //style
+        sparkle.style.width = '${size}px'; // ${} converts to string
+        sparkle.style.height = '${size}px';
+        sparkle.style.left = '${x}px';
+        sparkle.style.top = '${y}px';
+        sparkle.style.color = color;
+        sparkle.style.animationDuration = '${duration}ms';
+        sparkle.style.animationDelay = '${delay}ms';
+        sparkle.style.transform = 'translate(-50%, -50%) rotate(${rotation}deg)';
 
+        //sparkle svg
+        sparkle.innerHTML = starSVG;
+
+        //physics
+        let currentX = x;
+        let currentY = y;
+        let currentVx = vx + (Math.random()-0.5)*3;
+        let currentVy = vy + (Math.random()-0.5)*3;
+        const friction = 0.93;
+
+        //animation for physics
+        const animate = () => {
+            currentX += currentVx;
+            currentY += currentVy;
+            currentVx *= friction;
+            currentVy *= friction;
+
+            //set position
+            sparkle.style.left = '${currentX}px';
+            sparkle.style.top = '${currentY}px';
+
+            //continue animation if sparkle is still visible
+            if (parseFloat(sparkle.style.opacity) > 0.01) {
+                requestAnimationFrame(animate);
+            }
+        };
     }
-})
+});
+
