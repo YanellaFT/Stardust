@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
         '#33ff00ff',
         '#0051ffff',
         '#7F3C8D',
+        '#ffff',
 
     ];
 
@@ -45,9 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         //CREATE SPARKLESSS 
         const speed = Math.sqrt((e.movementX)**2 + (e.movementY)**2);
-        const sparkleCount = Math.min(8, Math.floor(speed/5));
+        const sparkleCount = Math.min(8, Math.floor(speed/3));
 
-        if (now - lastEmitTime > 10) {
+        if (now - lastEmitTime > 0) {
             for ( let i = 0; i < sparkleCount; i++) {
                 createSparkle(
                     e.clientX + (Math.random()-0.5)*20,
@@ -69,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const color = colors[Math.floor(Math.random() * colors.length)];
         const duration = 500 + Math.random() * 500;
         const rotation = Math.random() * 360;
-        const delay = Math.random() * 100;
+        const delay = Math.random() * 10;
 
         //style
         sparkle.style.width = `${size}px`; // ${} converts to string
@@ -118,12 +119,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
   //Hide default cursor
-  document.addEventListener('mouseenter', () => {
-    document.body.style.cursor = 'none';
-  });
-  document.addEventListener('mouseleave', () => {
-    document.body.style.cursor = 'default';
-  });
+//  document.addEventListener('mouseenter', () => {
+//    document.body.style.cursor = 'none';
+//  });
+//  document.addEventListener('mouseleave', () => {
+//    document.body.style.cursor = 'default';
+//  });
 
 });
 

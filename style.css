@@ -5,12 +5,17 @@ body {
   overflow: hidden;
   background: black;
   color: white; /*text will be white*/
-  font-family: Arial, Helvetica, sans-serif; /*change font later*/
-  cursor: none; /*hides cursor*/
+  font-family: cursive;
+  /*cursor: none; hides cursor
+  cursor: url('star.png');*/
   display: flex; /*creates flex container*/
   justify-content: center; /*aligns flex container in center*/
   align-items: center; /*aligns flex container vertically*/
   text-align: center; /*aligns text in center*/
+}
+
+html {
+  cursor: url('star.png'), auto;
 }
 
 .content {
@@ -62,3 +67,4 @@ h1 {
   width: 100%;
   height: 100%;
 }
+

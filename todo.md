@@ -1,6 +1,6 @@
 # To do:
 
-* add white sparkles
-* make it so the movement of mouse gets detected slower
 * add sparkles when mouse clicks
-* change font
+* add mouse click feature   
+* sparkles to circles for dust like a shooting star 
+* rotation of star on cursor
