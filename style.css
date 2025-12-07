@@ -41,7 +41,7 @@ h1 {
   z-index: 10;
   transform: translate(-50%, -50%);
   opacity: 0;
-  animation: sparkle-fade 0.8s ease-out fowards;
+  animation: sparkle-fade 0.8s ease-out forwards;
   will-change: transform, opacity;
 }
 

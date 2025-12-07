@@ -72,14 +72,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const delay = Math.random() * 100;
 
         //style
-        sparkle.style.width = '${size}px'; // ${} converts to string
-        sparkle.style.height = '${size}px';
-        sparkle.style.left = '${x}px';
-        sparkle.style.top = '${y}px';
+        sparkle.style.width = `${size}px`; // ${} converts to string
+        sparkle.style.height = `${size}px`;
+        sparkle.style.left = `${x}px`;
+        sparkle.style.top = `${y}px`;
         sparkle.style.color = color;
-        sparkle.style.animationDuration = '${duration}ms';
-        sparkle.style.animationDelay = '${delay}ms';
-        sparkle.style.transform = 'translate(-50%, -50%) rotate(${rotation}deg)';
+        sparkle.style.animationDuration = `${duration}ms`;
+        sparkle.style.animationDelay = `${delay}ms`;
+        sparkle.style.transform = `translate(-50%, -50%) rotate(${rotation}deg)`;
 
         //sparkle svg
         sparkle.innerHTML = starSVG;
@@ -99,8 +99,8 @@ document.addEventListener("DOMContentLoaded", () => {
             currentVy *= friction;
 
             //set position
-            sparkle.style.left = '${currentX}px';
-            sparkle.style.top = '${currentY}px';
+            sparkle.style.left = `${currentX}px`;
+            sparkle.style.top = `${currentY}px`;
 
             //continue animation if sparkle is still visible
             if (parseFloat(sparkle.style.opacity) > 0.01) {
