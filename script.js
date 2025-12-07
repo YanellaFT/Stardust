@@ -117,5 +117,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }, duration + delay);
     }
 
+  //Hide default cursor
+  document.addEventListener('mouseenter', () => {
+    document.body.style.cursor = 'none';
+  });
+  document.addEventListener('mouseleave', () => {
+    document.body.style.cursor = 'default';
+  });
+
 });
 
