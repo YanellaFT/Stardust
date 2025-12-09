@@ -7,18 +7,20 @@ document.addEventListener("DOMContentLoaded", () => {
         '#33ff00ff',
         '#0051ffff',
         '#7F3C8D',
-        '#ffff',
-
+        'rgb(214, 142, 187)',
+        'rgb(214, 213, 142)',
+        'rgb(214, 174, 142)',
+        'rgb(154, 214, 142)',
+        'rgb(142, 161, 214)',
     ];
 
     //Define an SVG template for a star shape
     //path uses coordinates to draw a 5-pointed star
     //fill="currentColor" makes it use the current text color
-    const starSVG = ` <svg viewBox="0 0 24 24">
-                    <path d="M12 1L14.8 8.2L22.5 9.2L16.7 14.5L18.4 22L12 18.2L5.6 22L7.3 14.5L1.5 
-    9.2L9.2 8.2L12 1Z" 
-                    fill="currentColor"/>
-                </svg>`;
+    // SVG template for a circle sparkle
+    const circleSVG = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="5" fill="currentColor"/>
+    </svg>`;
 
     //store cursor position
     const cursorHistory = [];
@@ -46,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         //CREATE SPARKLESSS 
         const speed = Math.sqrt((e.movementX)**2 + (e.movementY)**2);
-        const sparkleCount = Math.min(8, Math.floor(speed/3));
+        const sparkleCount = Math.min(20, Math.floor(speed/3));
 
         if (now - lastEmitTime > 0) {
             for ( let i = 0; i < sparkleCount; i++) {
@@ -82,8 +84,8 @@ document.addEventListener("DOMContentLoaded", () => {
         sparkle.style.animationDelay = `${delay}ms`;
         sparkle.style.transform = `translate(-50%, -50%) rotate(${rotation}deg)`;
 
-        //sparkle svg
-        sparkle.innerHTML = starSVG;
+    //sparkle svg (now a circle)
+    sparkle.innerHTML = circleSVG;
 
         //physics
         let currentX = x;
